@@ -1,0 +1,19 @@
+<%- include("../views/header/header.ejs") %>
+
+<main class="container text-center py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="display-1 fw-bold text-secondary">404</h1>
+      <h2 class="mb-4">Ops! Página não encontrada</h2>
+      <p class="lead mb-5">
+        O post ou a página que você está procurando (<code><%= url %></code>) pode ter sido removido ou o link está incorreto.
+      </p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/" class="btn btn-primary btn-lg px-4 gap-3">Voltar para a Home</a>
+        <a href="#" class="btn btn-outline-secondary btn-lg px-4">Contatar Suporte</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include("../views/footer/footer.ejs") %>

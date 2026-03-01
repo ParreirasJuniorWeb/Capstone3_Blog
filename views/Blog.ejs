@@ -1,0 +1,29 @@
+<%- include("../views/header/header.ejs") %>
+  <main class="container mt-4">
+    <h2>Vitrine <%= categoriaAtiva ? `- ${categoriaAtiva}` : '' %>
+    </h2>
+    <div class="row">
+      <% posts.forEach(post=> { %>
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <small class="text-primary fw-bold">
+                <%= post.label %>
+              </small>
+              <h3 class="card-title">
+                <%= post.title %>
+              </h3>
+              <p class="text-muted">
+                <%= post.date %>
+              </p>
+              <p class="card-text">
+                <%= post.subtitle %>
+              </p>
+              <a href="/post/<%= post.id %>" class="btn btn-link p-0 text-decoration-none">Continuar lendo →</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+    </div>
+  </main>
+  <%- include("../views/footer/footer.ejs") %>

@@ -1,0 +1,657 @@
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title _msttexthash="646321" _msthash="0">
+        Modelo de Blog · Bootstrap v5.3
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" />
+    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180" />
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json" />
+    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9" />
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&amp;display=swap" rel="stylesheet" />
+    <style>
+        * {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .blog-header-logo {
+            font-family: "Playfair Display", Georgia, "Times New Roman",
+                serif
+                /*rtl:Amiri, Georgia, "Times New Roman", serif*/
+            ;
+            font-size: 2.25rem;
+        }
+
+        .text-body-emphasis {
+            --bs-text-opacity: 1;
+            color: var(--bs-emphasis-color) !important;
+        }
+
+        .text-decoration-none {
+            text-decoration: none !important;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            width: 100%;
+            height: 3rem;
+            background-color: #0000001a;
+            border: solid rgba(0, 0, 0, 0.15);
+            border-width: 1px 0;
+            box-shadow: inset 0 0.5em 1.5em #0000001a,
+                inset 0 0.125em 0.5em #00000026;
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .btn-bd-primary {
+            --bd-violet-bg: #712cf9;
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: #6528e0;
+            --bs-btn-hover-border-color: #6528e0;
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: #5a23c8;
+            --bs-btn-active-border-color: #5a23c8;
+        }
+
+        .bd-mode-toggle {
+            z-index: 1500;
+        }
+
+        .bd-mode-toggle .bi {
+            width: 1em;
+            height: 1em;
+        }
+
+        .bd-mode-toggle .dropdown-menu .active .bi {
+            display: block !important;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include("./header/header.ejs"); %>
+        <div class="container">
+            <!-- Vertically centered scrollable modal -->
+            <div class="d-flex flex-row justify-content-center align-items-center py-3 m-2 gap-5">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="@mdo">
+                    Criar Post Destaque 1
+                </button>
+            </div>
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                    Nova Postagem no Blog
+                                </h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/newPost" method="POST">
+                                    <div class="mb-3">
+                                        <label for="recipient-name" class="col-form-label">Título:</label>
+                                        <input type="text" class="form-control" id="recipient-name" required
+                                            name="title" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Subtítulo:</label>
+                                        <input type="text" class="form-control" id="recipient-name" name="subtitle" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Legenda:</label>
+                                        <input type="text" class="form-control" id="recipient-name" name="label" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Data de publicação:</label>
+                                        <input type="date" class="form-control" id="recipient-name" required
+                                            name="date" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Autor:</label>
+                                        <input type="text" class="form-control" id="recipient-name" required
+                                            name="writer" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message-text" class="col-form-label">Texto do Artigo:</label>
+                                        <textarea cols="5" rows="8" class="form-control" id="recipient-name" required
+                                            name="article"></textarea>
+                                    </div>
+                                    <button type="subit" class="btn btn-primary">Salvar</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if (locals.posts) { %>
+                <% locals.posts .filter(post=> post.id ===
+                    1 && post.isFeatured == true).forEach(post => { %>
+                    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+                        <div class="col-lg-6 px-0">
+                            <h1 class="display-4 fst-italic" _msttexthash="1428960" _msthash="23">
+                                <%= post.title %>
+                            </h1>
+                            <p class="lead my-3" _msttexthash="13070291" _msthash="24">
+                                <%= post.article %>
+                            </p>
+                            <h3 class="mb-0">
+                                <%= post.title %>
+                            </h3>
+                            <a href="/post/<%= post.id %>" class="icon-link gap-1 icon-link-hover stretched-link">
+                                Continuar lendo...
+                            </a>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } %>
+
+                            <div class="row mb-2">
+                                <div class="col-md-6">
+                                    <div
+                                        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                        <% if (locals.posts) { %>
+                                            <% locals.posts .filter(post=> post.id
+                                                === 2).forEach(post => { %>
+                                                <div class="col p-4 d-flex flex-column position-static">
+                                                    <strong class="d-inline-block mb-2 text-primary-emphasis"
+                                                        _msttexthash="60918" _msthash="26">Mundo</strong>
+                                                    <h3 class="mb-0" _msttexthash="263679" _msthash="27">
+                                                        <%= post.title %>
+                                                    </h3>
+                                                    <div class="mb-1 text-body-secondary" _msttexthash="198666"
+                                                        _msthash="28">
+                                                        <%= post.date %>
+                                                    </div>
+                                                    <p class="card-text mb-auto" _msttexthash="6633198" _msthash="29">
+                                                        <%= post.article %>
+                                                    </p>
+                                                    <h3 class="mb-0">
+                                                        <%= post.title %>
+                                                    </h3>
+                                                    <a href="/post/<%= post.id %>"
+                                                        class="icon-link gap-1 icon-link-hover stretched-link">
+                                                        Continuar lendo...
+                                                    </a>
+                                                </div>
+                                                <% }) %>
+                                                    <% } %>
+
+                                                        <div class="col-auto d-none d-lg-block">
+                                                            <svg aria-label="Provisório: Miniatura"
+                                                                class="bd-placeholder-img" height="250"
+                                                                preserveAspectRatio="xMidYMid slice" role="img"
+                                                                width="200" xmlns="http://www.w3.org/2000/svg"
+                                                                _mstaria-label="470535" _mstHash="31">
+                                                                <title _mstTextHash="525447" _mstHash="32">
+                                                                    Provisório de posição
+                                                                </title>
+                                                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                                                <text x="50%" y="50%" fill="#eceeef" dy=".3em"
+                                                                    _mstTextHash="135850" _mstHash="33">
+                                                                    Miniatura
+                                                                </text>
+                                                            </svg>
+                                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div
+                                        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                        <% if (locals.posts) { %>
+                                            <% locals.posts .filter(post=> post.id
+                                                === 3).forEach(post => { %>
+                                                <div class="col p-4 d-flex flex-column position-static">
+                                                    <strong class="d-inline-block mb-2 text-success-emphasis"
+                                                        _msttexthash="97201" _msthash="34">Projeto</strong>
+                                                    <h3 class="mb-0" _msttexthash="228423" _msthash="35">
+                                                        <%= post.title %>
+                                                    </h3>
+                                                    <div class="mb-1 text-body-secondary" _msttexthash="198562"
+                                                        _msthash="36">
+                                                        <%= post.date %>
+                                                    </div>
+                                                    <p class="mb-auto" _msttexthash="6633198" _msthash="37">
+                                                        <%= post.article %>
+                                                    </p>
+                                                    <h3 class="mb-0">
+                                                        <%= post.title %>
+                                                    </h3>
+                                                    <a href="/post/<%= post.id %>"
+                                                        class="icon-link gap-1 icon-link-hover stretched-link">
+                                                        Continuar lendo...
+                                                    </a>
+                                                </div>
+                                                <% }) %>
+                                                    <% } %>
+
+                                                        <div class="col-auto d-none d-lg-block">
+                                                            <svg aria-label="Provisório: Miniatura"
+                                                                class="bd-placeholder-img" height="250"
+                                                                preserveAspectRatio="xMidYMid slice" role="img"
+                                                                width="200" xmlns="http://www.w3.org/2000/svg"
+                                                                _mstaria-label="470535" _mstHash="39">
+                                                                <title _mstTextHash="525447" _mstHash="40">
+                                                                    Provisório de posição
+                                                                </title>
+                                                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                                                <text x="50%" y="50%" fill="#eceeef" dy=".3em"
+                                                                    _mstTextHash="135850" _mstHash="41">
+                                                                    Miniatura
+                                                                </text>
+                                                            </svg>
+                                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% if(locals.posts) { %>
+                                <% locals.posts.filter(post=> post.id > 3).forEach(post => { %>
+                                    <div class="col-md-8 py-3">
+                                        <strong class="d-inline-block mb-2 text-primary-emphasis" _msttexthash="60918"
+                                            _msthash="26">
+                                            <% if(locals.posts) { %>
+                                                <%= post.label %>
+                                                    <% } else { %>
+                                                        Mundo
+                                                        <% } %>
+                                        </strong>
+                                        <h2 class="pb-4 mb-4 fst-italic border-bottom" _msttexthash="510380"
+                                            _msthash="42">
+                                            <% if(locals.posts) { %>
+                                                <%= post.title %>
+                                                    <% } else { %>
+                                                        Da Mangueira de Incêndio
+                                                        <% } %>
+                                        </h2>
+                                        <article class="blog-post">
+                                            <h3 class="display-5 link-body-emphasis mb-1" _msttexthash="423462"
+                                                _msthash="43">
+                                                <% if(locals.posts) { %>
+                                                    <%= post.subtitle %>
+                                                        <% } else { %>
+                                                            Post de exemplo no blog
+                                                            <% } %>
+                                            </h3>
+                                            <p class="blog-post-meta" _msttexthash="544609" _msthash="44">
+                                                <% if(locals.posts) { %>
+                                                    <%= post.date %> por
+                                                        <% } else { %>
+                                                            1º de janeiro de 2021 por
+                                                            <% } %> <a href="#" _istranslated="1">
+                                                                    <% if(locals.posts) { %>
+                                                                        <%= post.writer %>
+                                                                            <% } else { %>
+                                                                                Mark
+                                                                                <% } %>
+                                                                </a>
+                                            </p>
+                                            <p _msttexthash="25525305" _msthash="45">
+                                                <% if(locals.posts) { %>
+                                                    <%= post.article %>
+                                                        <% } else { %>
+                                                            Este post do blog mostra alguns tipos diferentes de conteúdo
+                                                            que são
+                                                            suportados e estilizados com o Bootstrap. Tipografia básica,
+                                                            listas,
+                                                            tabelas, imagens, código e muito mais são todos suportados
+                                                            conforme
+                                                            esperado.
+                                                            <% } %>
+                                            </p>
+                                            <hr />
+                                            <p _msttexthash="46314658" _msthash="46">
+                                                <% if(locals.posts) { %>
+                                                    <%= post.article %>
+                                                        <% } else { %>
+                                                            Este é um conteúdo adicional de parágrafo provisório. Foi
+                                                            escrito
+                                                            para preencher o espaço disponível e mostrar como um trecho
+                                                            de texto
+                                                            mais longo afeta o conteúdo ao redor. Repetiremos isso com
+                                                            frequência para manter a demonstração fluindo, então fique
+                                                            atento a
+                                                            essa mesma sequência de texto.
+                                                            <% } %>
+                                            </p>
+                                            <h3 class="mb-0">
+                                                <%= post.title %>
+                                            </h3>
+                                            <a href="/post/<%= post.id %>"
+                                                class="icon-link gap-1 icon-link-hover stretched-link">
+                                                Continuar lendo...
+                                            </a>
+                                        </article>
+                                        <br />
+                                        <button class="btn btn-outline-primary rounded-pill" _msttexthash="182663"
+                                            _msthash="116" data-bs-toggle="modal" data-bs-target="#formUpdateModal"
+                                            data-bs-whatever="@mdo" type="submit">
+                                            Atualizar
+                                        </button>
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                            <div class="modal fade" id="formUpdateModal" tabindex="-1"
+                                                aria-labelledby="formUpdateModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="formUpdateModalLabel">
+                                                                Atualização da Postagem no Blog
+                                                            </h1>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="updatePost/:id" method="GET">
+                                                                <div class="mb-3">
+                                                                    <input type="text" value="<%= post.id %>" hidden
+                                                                        name="id" />
+                                                                    <label for="recipient-name"
+                                                                        class="col-form-label">Título:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="recipient-name" required name="title"
+                                                                        value="<%= post.title %>" />
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="message-text"
+                                                                        class="col-form-label">Subtítulo:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="recipient-name" name="subtitle"
+                                                                        value="<%= post.subtitle %>" />
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="message-text"
+                                                                        class="col-form-label">Legenda:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="recipient-name" name="label"
+                                                                        value="<%= post.label %>" />
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="message-text"
+                                                                        class="col-form-label">Data de
+                                                                        publicação:</label>
+                                                                    <input type="date" class="form-control"
+                                                                        id="recipient-name" required name="date"
+                                                                        value="<%= post.date %>" />
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="message-text"
+                                                                        class="col-form-label">Autor:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="recipient-name" required name="writer"
+                                                                        value="<%= post.writer %>" />
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="message-text"
+                                                                        class="col-form-label">Texto do Artigo:</label>
+                                                                    <textarea cols="5" rows="8" class="form-control"
+                                                                        id="recipient-name" required name="article"
+                                                                        value="<%= post.article %>"></textarea>
+                                                                </div>
+                                                                <button type="subit"
+                                                                    class="btn btn-primary">Salvar</button>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                Close
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <form action="/deletePost/<%= post.id %>" method="GET" class="blog-pagination"
+                                            aria-label="Paginação" _mstaria-label="157170" _msthash="115">
+                                            <input type="text" value="<%= post.id %>" hidden name="id" />
+                                            <button class="btn btn-outline-secondary rounded-pill" aria-disabled="true"
+                                                _msttexthash="206310" _msthash="117" type="submit">Excluir</button>
+                                        </form>
+                                    </div>
+                                    <% }) %>
+                                        <% } %>
+
+                                            <% if(locals.layoutInfo) { %>
+                                                <div class="col-md-4">
+                                                    <div class="position-sticky" style="top: 2rem">
+                                                        <div class="p-4 mb-3 bg-body-tertiary rounded">
+                                                            <h4 class="fst-italic" _msttexthash="59826" _msthash="118">
+                                                                Sobre
+                                                            </h4>
+                                                            <p class="mb-0" _msttexthash="19292546" _msthash="119">
+                                                                <%= layoutInfo.aboutText %>
+                                                            </p>
+                                                        </div>
+                                                        <div>
+                                                            <h4 class="fst-italic" _msttexthash="354497" _msthash="120">
+                                                                Postagens recentes
+                                                            </h4>
+
+                                                            <% if(locals.RecentlyPosts) { %>
+                                                                <ul class="list-unstyled">
+                                                                    <li>
+                                                                        <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                                                            href="#">
+                                                                            <svg aria-hidden="true"
+                                                                                class="bd-placeholder-img" height="96"
+                                                                                preserveAspectRatio="xMidYMid slice"
+                                                                                width="100%"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <rect width="100%" height="100%"
+                                                                                    fill="#777"></rect>
+                                                                            </svg>
+                                                                            <div class="col-lg-8">
+                                                                                <h6 class="mb-0" _msttexthash="788593"
+                                                                                    _msthash="121">
+                                                                                    <%=RecentlyPosts.post01.title%>
+                                                                                </h6>
+                                                                                <small class="text-body-secondary"
+                                                                                    _msttexthash="275080"
+                                                                                    _msthash="122">
+                                                                                    <%=RecentlyPosts.post01.date%>
+                                                                                </small>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                                                            href="#">
+                                                                            <svg aria-hidden="true"
+                                                                                class="bd-placeholder-img" height="96"
+                                                                                preserveAspectRatio="xMidYMid slice"
+                                                                                width="100%"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <rect width="100%" height="100%"
+                                                                                    fill="#777"></rect>
+                                                                            </svg>
+                                                                            <div class="col-lg-8">
+                                                                                <h6 class="mb-0" _msttexthash="863421"
+                                                                                    _msthash="123">
+                                                                                    <%=RecentlyPosts.post02.title%>
+                                                                                </h6>
+                                                                                <small class="text-body-secondary"
+                                                                                    _msttexthash="274976"
+                                                                                    _msthash="124">
+                                                                                    <%=RecentlyPosts.post02.date%>
+                                                                                </small>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top"
+                                                                            href="#">
+                                                                            <svg aria-hidden="true"
+                                                                                class="bd-placeholder-img" height="96"
+                                                                                preserveAspectRatio="xMidYMid slice"
+                                                                                width="100%"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <rect width="100%" height="100%"
+                                                                                    fill="#777"></rect>
+                                                                            </svg>
+                                                                            <div class="col-lg-8">
+                                                                                <h6 class="mb-0" _msttexthash="1618331"
+                                                                                    _msthash="125">
+                                                                                    <%=RecentlyPosts.post03.title%>
+                                                                                </h6>
+                                                                                <small class="text-body-secondary"
+                                                                                    _msttexthash="274872"
+                                                                                    _msthash="126">
+                                                                                    <%=RecentlyPosts.post03.title%>
+                                                                                </small>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                                <% } %>
+                                                        </div>
+                                                        <div class="p-4">
+                                                            <h4 class="fst-italic" _msttexthash="119314" _msthash="127">
+                                                                Arquivos
+                                                            </h4>
+                                                            <ol class="list-unstyled mb-0">
+                                                                <li>
+                                                                    <a href="#" _msttexthash="148694"
+                                                                        _msthash="128">Março de 2021</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="229060"
+                                                                        _msthash="129">Fevereiro de 2021</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="177086"
+                                                                        _msthash="130">Janeiro de 2021</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="202059"
+                                                                        _msthash="131">Dezembro de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="203541"
+                                                                        _msthash="132">Novembro de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="181155"
+                                                                        _msthash="133">Outubro de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="202722"
+                                                                        _msthash="134">Setembro de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="155766"
+                                                                        _msthash="135">Agosto de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="133068"
+                                                                        _msthash="136">Julho de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="133302"
+                                                                        _msthash="137">Junho de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="110786"
+                                                                        _msthash="138">Maio de 2020</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="130676"
+                                                                        _msthash="139">Abril de 2020</a>
+                                                                </li>
+                                                            </ol>
+                                                        </div>
+                                                        <div class="p-4">
+                                                            <h4 class="fst-italic" _msttexthash="296543" _msthash="140">
+                                                                Em outros lugares
+                                                            </h4>
+                                                            <ol class="list-unstyled">
+                                                                <li>
+                                                                    <a href="#" _msttexthash="72332"
+                                                                        _msthash="141">GitHub</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="75049"
+                                                                        _msthash="142">Social</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#" _msttexthash="110734"
+                                                                        _msthash="143">Facebook</a>
+                                                                </li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% } %>
+        </div>
+        <%- include("./footer/footer.ejs"); %>
+</body>
+
+</html>

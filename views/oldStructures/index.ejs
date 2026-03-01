@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/CSS/style.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <h1>Grid CSS - Estruturando Layouts Modernos</h1>
+  <p>Apresentamos o uso do Grid Layout no CSS para criar layouts flexíveis e responsivos e iremos criar grades, organizar colunas e linhas, e controlar o espaçamento entre os elementos.</p>
+</header>
+
+<!-- Navigation Bar -->
+<div class="navbar">
+  <a href="#">GitHub</a>
+  <a href="#">CSS</a>
+  <a href="#">HTML</a>
+  <a href="#">JS</a>
+  <a href="#">React</a>
+  <a href="#">JQuery</a>
+  <a href="#">Boostrap</a>
+  <a href="#">Tailwind css</a>
+  <a href="#">Vercel Deploy</a>
+  <a href="#">Render Deploy</a>
+  <a href="#">Next.js</a>
+  <a href="#">TypeScript</a>
+</div>
+
+<!-- Content Container -->
+<div class="container">
+  <div class="side">
+    <h2>Grid CSS - Estruturando Layouts Modernos</h2>
+    <h5>CSS Grid</h5>
+    <div class="fakeimg" style="height:200px;" alt="Designer Tabular, colunas e linhas">Designer Tabular, colunas e linhas</div>
+    <p>Introdução ao Grid CSS</p>
+    <h3>O que é Grid Layout?</h3>
+    <p>Diferença entre Grid e Flexbox</p>
+    <div class="fakeimg" style="height:60px;" alt="Grid Layout">Grid Layout</div><br>
+    <div class="fakeimg" style="height:60px;" alt="Flexbox Layout">Flexbox Layout</div><br>
+    <div class="fakeimg" style="height:60px;" alt="Grid Layout e Flexbox Layout">Grid Layout e Flexbox Layout</div>
+    <p>Casos de uso do Grid</p>
+    <div class="summary">
+      <summary>
+        <h3>Índice</h3>
+        <details class="container-indice">
+          <nav class="navbar-indice">
+            <ol type="A">
+              <li><a href="">Elementos Básicos do Grid CSS</a></li>
+              <ol type="1">
+                <li><a href="">Definindo um Container Grid</a></li>
+                <li><a href="">Definindo Colunas e Linhas</a></li>
+                <li><a href="">Espaçamento entre células (gap)</a></li>
+                <li><a href="">Exemplos Práticos completos</a></li>
+              </ol>
+              <li><a href="">EPosicionamento no Grid CSS</a></li>
+              <ol type="1">
+                <li><a href="">Posicionando Itens com grid-column e grid-row</a></li>
+                <li><a href="">Usando grid-area para Áreas Nomeadas</a></li>
+              </ol>
+            </ol>
+          </nav>
+        </details>
+      </summary>
+    </div>
+  </div>
+  <div class="main">
+    <h2>Introdução ao Grid CSS</h2>
+    <h3>O que é Grid Layout?</h3>
+    <h5>Title description, Oct 7, 2025</h5>
+    <div class="fakeimg" style="height:200px;" alt="Introdução Grid CSS">Introdução Grid CSS</div>
+    <p>O Grid Layout (ou CSS Grid) é um sistema de layout bidimensional para a web que permite criar designs complexos e responsivos com facilidade. Ele divide a página em um sistema de linhas e colunas, permitindo que você posicione elementos em qualquer área definida por essa grade.</p>
+    <p>O Grid Layout (ou CSS Grid) é um sistema de layout bidimensional para a web que permite criar designs complexos e responsivos com facilidade. Ele divide a página em um sistema de linhas e colunas, permitindo que você posicione elementos em qualquer área definida por essa grade.</p>
+    <h3>Principais características:</h3>
+    <ul>
+      <li>Sistema baseado em linhas e colunas</li>
+      <li>Controle preciso sobre posicionamento de itens</li>
+      <li>Capacidade de alinhamento avançado</li>
+      <li>Responsivo por natureza</li>
+      <li>Redefinição de layout sem alterar HTML</li>
+    </ul>
+    <h3>Diferença entre Grid e Flexbox</h3>
+    <table>
+      <caption>Propriedades CSS</caption>
+      <tr>
+        <th>Característica</th>
+      </tr>
+      <tr>
+        <td>Dimensão</td>
+      </tr>
+      <tr>
+        <th>Grid CSS</th>
+      </tr>
+      <tr>
+        <td>Bidimensional (linhas e colunas)</td>
+      </tr>
+      <tr>
+        <th>Flexbox</th>
+      </tr>
+      <tr>
+        <td>Unidimensional (linha OU coluna)</td>
+      </tr>
+    </table>
+    <br>
+    <h2>Elementos Básicos do Grid CSS</h2>
+    <h3>1. Definindo um Container Grid</h3>
+    <h5>Title description, Sep 2, 2025</h5>
+    <div class="fakeimg" style="height:200px;" alt="Definindo um Container Grid">Definindo um Container Grid</div>
+    <p>Vamos explorar os conceitos fundamentais para criar e controlar layouts com CSS Grid.</p>
+    <p>Para transformar um elemento em um container grid, use:</p>
+    <div>
+      <pre>
+        <code>
+          <div class="container">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+        </div>
+        </code>
+      </pre>
+    </div>
+    <br />
+     <div>
+      <pre>
+        <code>
+          .container {
+            display: grid; /* Ativa o Grid Layout */
+          }
+
+          .item {
+            background: lightblue;
+            padding: 10px;
+            border: 1px solid #333;
+          }
+        </code>
+      </pre>
+    </div>
+    <p>Isso faz com que todos os filhos diretos desse container se tornem itens da grade.</p>
+    <h3>2. Definindo Colunas e Linhas</h3>
+    <h3>grid-template-columns</h3>
+    <p>Define o número e o tamanho das colunas.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <h4>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</h4>
+</footer>
+
+</body>
+</html>
